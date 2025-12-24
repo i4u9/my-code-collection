@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculator project</title>
+        <style>
+            body{
+                background-color: black;
+                color: white;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+
+            #display{
+                font-size: 30px;
+                margin-left: 4px;
+            }
+
+            button{
+                margin-left: 4px;
+
+                border: 0px none black;
+                border-radius: 50px;
+                
+                width: 60px;
+                height: 60px;
+
+                font-size:18px;
+            }
+            button:hover{
+                opacity: 0.85;
+            }
+
+            .operationButton{
+                background-color: rgb(255, 106, 0);
+            }
+
+            .resetButton{
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <p id="display">0</p>
+
+        <!-- first row -->
+        <p>
+            <button onclick="
+                calculation += '1';
+                displayCalculation.innerText = calculation;
+                ">1</button>
+            <button onclick="
+                calculation += '2';
+                displayCalculation.innerText = calculation;
+                ">2</button>
+            <button onclick="
+                calculation += '3';
+                displayCalculation.innerText = calculation;
+                ">3</button>
+            <button onclick="
+                calculation += ' - ';
+                displayCalculation.innerText = calculation;
+                " class="operationButton">-</button>
+        </p>
+        <!-- second row -->
+        <p>
+            <button onclick="
+                calculation += '4';
+                displayCalculation.innerText = calculation;
+                ">4</button>
+            <button onclick="
+                calculation += '5';
+                displayCalculation.innerText = calculation;
+                ">5</button>
+            <button onclick="
+                calculation += '6';
+                displayCalculation.innerText = calculation;
+                ">6</button>
+            <button onclick="
+                calculation += ' + ';
+                displayCalculation.innerText = calculation;
+                " class="operationButton">+</button>
+        </p>
+        <!-- third row -->
+        <p>
+            <button onclick="
+                calculation += '7';
+                displayCalculation.innerText = calculation;
+                ">7</button>
+            <button onclick="
+                calculation += '8';
+                displayCalculation.innerText = calculation;
+                ">8</button>
+            <button onclick="
+                calculation += '9';
+                displayCalculation.innerText = calculation;
+                ">9</button>
+            <button onclick="
+                calculation += ' * ';
+                displayCalculation.innerText = calculation;
+                " class="operationButton">x</button>
+        </p>
+        <!-- fifth row -->
+        <p>
+            <button onclick="
+                calculation = '';
+                displayCalculation.innerText = '0';
+                " class="resetButton">C</button>
+            <button onclick="
+                calculation += '0';
+                displayCalculation.innerText = calculation;
+                ">0</button>
+            <button onclick="
+                result = eval(calculation);
+                displayCalculation.innerText = `${result}`;
+                calculation = `${result}`;
+                " class="operationButton">=</button>
+            <button onclick="
+                calculation += ' / ';
+                displayCalculation.innerText = calculation;
+                " class="operationButton">/</button>
+        </p>
+
+        <script>
+            let calculation = "";
+            let result = 0;
+            let displayCalculation = document.getElementById('display');
+        </script>
+    </body>
+</html>

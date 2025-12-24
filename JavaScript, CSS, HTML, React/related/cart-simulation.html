@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> My website </title>
+        <style>
+            p{
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            .modifyQuantityButton{
+                background-color: rgb(255, 234, 0);
+                color: white;
+
+                border: 0.5px none black;
+                border-radius: 10px;
+
+                text-shadow: 2px 1px 3px black;
+
+                padding-right: 20px;
+                padding-left: 20px;
+                padding-top: 3px;
+                padding-bottom: 3px;
+
+                margin-top: 10px;
+
+                box-shadow: 1px 1.5px 3px black;
+
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            .modifyQuantityButton:hover{
+                background-color: rgb(226, 207, 0);
+            }
+
+            .displayButton{
+                background-color: rgb(255, 140, 0);
+                color: white;
+
+                border: 1px none black;
+                border-radius: 10px;
+
+                text-shadow: 2px 1px 3px black;
+
+                padding-right: 20px;
+                padding-left: 20px;
+                padding-top: 3px;
+                padding-bottom: 3px;
+
+                margin-top: 10px;
+
+                box-shadow: 1px 1.5px 3px black;
+
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            .displayButton:hover{
+                background-color: rgb(226, 124, 0);
+            }
+
+            .myLink{
+                background-color: black;
+
+                border: 2.2px solid grey;
+                border-radius: 10px;
+
+                color: white;
+
+                margin-top: 10px;
+            }
+            .myLink:hover, .myLink:active{
+                background-color: rgb(53, 53, 53);
+            }
+        </style> 
+    </head>
+    <body>
+        <p>Cart simulation</p>
+
+        <!-- buttons -->
+        <button onclick="
+            console.log(`Cart quantity: ${cartQuantity}`);
+        " class="displayButton"> Show Quantity 
+        </button><br>
+        <button onclick="
+            console.log('The quantity was saved');
+        " class="modifyQuantityButton"> Add to Cart 
+        </button><br>
+        <button onclick="
+            cartQuantity = cartQuantity + 1;
+            console.log(`Cart quantity: ${cartQuantity}`)
+        " class="modifyQuantityButton"> +1 
+        </button><br>
+        <button onclick="
+            cartQuantity = cartQuantity - 1;
+            console.log(`Cart quantity: ${cartQuantity}`)
+        " class="modifyQuantityButton"> -1 
+        </button><br>
+        <button onclick="
+            cartQuantity = 0;
+            console.log(`Cart quantity: ${cartQuantity}`);
+        " class="displayButton"> Reset Cart 
+        </button><br>
+
+        <!-- link button -->
+        <button onclick="
+            window.location.href = 'https://www.amazon.com.br/'
+        " class="myLink">Go to amazon
+        </button><br>
+
+        <!-- store quanitity -->
+        <script>
+            let cartQuantity = 0;
+        </script>
+
+    </body>
+</html>
