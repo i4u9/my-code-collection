@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <style>
+            body {
+                background-color: black;
+                color: white;
+            }
+        </style>
+    </head>
+
+    <body>
+        <button onclick="modifyDisplay('Heads')">Heads</button>
+        <button onclick="modifyDisplay('Tails')">Tails</button>
+        <p class="display">You chose: none</p>
+        <br>
+
+        <input placeholder="Enter your name" class="name-input" onkeyup="handleSubmitOnKey(event);"> <button onclick="changeName();">Submit</button>
+        <p class="name-display">Your name is: none</p>
+        <br>
+
+        <input class="text-input" placeholder="Type something" onkeyup="displayText()">
+        <p class="text-display"></p>
+
+        <script>
+            function modifyDisplay(wichButton) {
+                document.querySelector('.display').innerText = `You chose: ${wichButton}`
+            } 
+
+            function changeName() {
+                const input = document.querySelector('.name-input').value; 
+                document.querySelector('.name-display').innerHTML = `Your name is: ${input}`;
+            }
+
+            function handleSubmitOnKey(event) {
+                if (event.key === 'Enter') {
+                    changeName();
+                }
+            }
+
+            function displayText() {
+                document.querySelector('.text-display').innerText = document.querySelector('.text-input').value;
+            }
+        </script>
+    </body>
+</html>

@@ -33,7 +33,7 @@
                 background-color: rgb(255, 106, 0);
             }
 
-            .resetButton{
+            .resetCalculationButton{
                 color: red;
             }
         </style>
@@ -44,85 +44,80 @@
         <!-- first row -->
         <p>
             <button onclick="
-                calculation += '1';
-                displayCalculation.innerText = calculation;
+                appendToCalculation('1');
                 ">1</button>
             <button onclick="
-                calculation += '2';
-                displayCalculation.innerText = calculation;
+                appendToCalculation('2');
                 ">2</button>
             <button onclick="
-                calculation += '3';
-                displayCalculation.innerText = calculation;
+                appendToCalculation('3');
                 ">3</button>
             <button onclick="
-                calculation += ' - ';
-                displayCalculation.innerText = calculation;
+                appendToCalculation(' - ');
                 " class="operationButton">-</button>
         </p>
         <!-- second row -->
         <p>
             <button onclick="
-                calculation += '4';
-                displayCalculation.innerText = calculation;
+                appendToCalculation('4');
                 ">4</button>
             <button onclick="
-                calculation += '5';
-                displayCalculation.innerText = calculation;
+                appendToCalculation('5');
                 ">5</button>
             <button onclick="
-                calculation += '6';
-                displayCalculation.innerText = calculation;
+                appendToCalculation('6');
                 ">6</button>
             <button onclick="
-                calculation += ' + ';
-                displayCalculation.innerText = calculation;
+                appendToCalculation(' + ');
                 " class="operationButton">+</button>
         </p>
         <!-- third row -->
         <p>
             <button onclick="
-                calculation += '7';
-                displayCalculation.innerText = calculation;
+                appendToCalculation('7');
                 ">7</button>
             <button onclick="
-                calculation += '8';
-                displayCalculation.innerText = calculation;
+                appendToCalculation('8');
                 ">8</button>
             <button onclick="
-                calculation += '9';
-                displayCalculation.innerText = calculation;
+                appendToCalculation('9');
                 ">9</button>
             <button onclick="
-                calculation += ' * ';
-                displayCalculation.innerText = calculation;
+                appendToCalculation(' * ');
                 " class="operationButton">x</button>
         </p>
         <!-- fifth row -->
         <p>
             <button onclick="
-                calculation = '';
-                displayCalculation.innerText = '0';
-                " class="resetButton">C</button>
+                resetCalculation();
+                " class="resetCalculationButton">C</button>
             <button onclick="
-                calculation += '0';
-                displayCalculation.innerText = calculation;
+                appendToCalculation('0')
                 ">0</button>
             <button onclick="
                 result = eval(calculation);
-                displayCalculation.innerText = `${result}`;
+                display.innerText = `${result}`;
                 calculation = `${result}`;
                 " class="operationButton">=</button>
             <button onclick="
-                calculation += ' / ';
-                displayCalculation.innerText = calculation;
+                appendToCalculation(' / ');
                 " class="operationButton">/</button>
         </p>
 
         <script>
-            let calculation = "";
+            let calculation = '';
             let result = 0;
-            let displayCalculation = document.getElementById('display');
+            let display = document.getElementById('display');
+
+            function appendToCalculation(calculationElementString) {
+                calculation += calculationElementString;
+                display.innerText = calculation;
+            }
+
+            function resetCalculation() {
+                calculation = '';
+                display.innerText = '0';
+            }
         </script>
     </body>
 </html>

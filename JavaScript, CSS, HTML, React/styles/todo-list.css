@@ -1,0 +1,51 @@
+body {
+    /* background-color: black;
+    color: white; */
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+button {
+    cursor: pointer;
+}
+button:hover {
+    opacity: 0.8;
+}
+
+input {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.todo-grid,
+.todo-input-grid {
+    display: grid;
+    grid-template-columns: 200px 150px 100px;
+
+    column-gap: 10px;
+    row-gap: 10px;
+
+    align-items: center;
+}
+
+.todo-input-grid {
+    align-items: stretch;
+}
+
+.add-button {
+    background-color: rgb(0, 150, 0);
+    color: white;
+
+    border: 0px solid black;
+
+    height: 40px;
+}
+
+.delete-button {
+    background-color: rgb(248, 0, 0);
+    color: white;
+
+    border: 0px solid black;
+
+    height: 40px;
+}

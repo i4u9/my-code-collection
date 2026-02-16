@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DOM projects</title>
+        <link rel="icon" type="image/png" href="images/icon.png">
+        <meta charset="UTF-8">
+        <style>
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            button:hover {
+                opacity: 0.8;
+            }
+
+            .subscribe-button {
+                background-color: black;
+                color: white;
+
+                font-weight: 600;
+
+                padding: 10px 10px 10px 10px;
+
+                border: 0px none black;
+                border-radius: 18px;
+
+                cursor: pointer;
+            }
+
+            .subscribed-button {
+                background-color: rgb(219, 219, 219);
+                color: black;
+
+                font-weight: 600;
+
+                padding: 10px 10px 10px 10px;
+
+                border: 0px none black;
+                border-radius: 18px;
+
+                cursor: pointer;
+            }
+
+            .cost-input {
+                border: 1px solid grey;
+                border-radius: 3px;
+
+                padding: 10px 15px;
+            }
+
+            .calculate-button {
+                background-color: green;
+                color: white;
+
+                border: 0px none black;
+
+                padding: 10px 15px;
+            }
+        </style>
+    </head>
+    <body>
+        <p>Youtube subscribe button</p>
+
+        <button class="subscribe-button" onclick="subscribe();">Subscribe</button>
+        <br><br>
+
+        <p>Amazon shipping Calculator</p>
+        <p>Orders under $40 dollars = +$10 shipping</p>
+        <p>Orders over or equal to $40 dollars = FREE shipping</p>
+        <input class="cost-input" placeholder="Cost of order" onkeydown="handleCostOnKey(event)"> <button class="calculate-button" onclick="calculateTotal();">Calculate</button>
+        <p class="total-cost"></p>
+        <br>
+
+        <p>Rock, paper, scissors game: <a href="rock-paper-scissors.html" target="_blank">click here</a></p>
+
+        <script>
+            function subscribe() {
+                const buttonElement = document.querySelector('.subscribe-button') || document.querySelector('.subscribed-button');
+                if (buttonElement.innerText === 'Subscribe') {
+                    buttonElement.innerText = 'Subscribed';
+                    buttonElement.className = 'subscribed-button';
+                } else {
+                    buttonElement.innerText = 'Subscribe';
+                    buttonElement.className = 'subscribe-button';
+                }
+            }
+
+            function calculateTotal() {
+                let cost = Number(document.querySelector('.cost-input').value);
+                const totalCostElement = document.querySelector('.total-cost');
+
+                if (cost && cost < 40) {
+                    cost += 10;
+                    totalCostElement.innerText = `$${Math.round(cost)}`;
+                } else if (cost && cost >= 40) {
+                    totalCostElement.innerText = `$${cost}`;
+                } else {
+                    totalCostElement.innerText = 'Invalid entry';
+                }
+            }
+
+            function handleCostOnKey(event) {
+                if (event.key === 'Enter') {
+                    calculateTotal();
+                }
+            }
+        </script>
+    </body>
+</html>
